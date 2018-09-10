@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2019
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "caesar-chypher-blazor", "caesar-chypher-blazor\caesar-chypher-blazor.csproj", "{8506DE62-AF39-453E-8D62-D8392ABB449C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8506DE62-AF39-453E-8D62-D8392ABB449C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8506DE62-AF39-453E-8D62-D8392ABB449C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8506DE62-AF39-453E-8D62-D8392ABB449C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8506DE62-AF39-453E-8D62-D8392ABB449C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C5485476-FBE3-4DCA-BE65-040769FBFC6A}
+	EndGlobalSection
+EndGlobal
