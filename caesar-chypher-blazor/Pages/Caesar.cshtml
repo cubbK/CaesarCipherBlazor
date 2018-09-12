@@ -6,11 +6,17 @@
     <label for="input-caesar">Input</label>
     <textarea class="form-control rounded-0" id="input-caesar" rows="5" bind="@InputText"></textarea>
 </div>
-<div class="form-group">
-    <label for="key">Shift Key</label>
-    <input class="form-control rounded-0" type="number" name="Key" bind="@Key" />
+<div class="key-container">
+    <div class="key-value">
+       Shift Key: @Key
+    </div>
+    <button type="button" class="btn btn-dark" onclick="@OnDecreaseKeyClick">
+        -
+    </button>
+    <button type="button" class="btn btn-dark" onclick="@OnIncreaseKeyClick">
+        +
+    </button>
 </div>
-
 <div class="form-group">
     <label for="output-caesar">Output</label>
     <textarea class="form-control rounded-0" id="output-caesar" rows="5" bind="@OutputText"></textarea>
