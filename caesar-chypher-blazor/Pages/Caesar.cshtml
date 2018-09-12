@@ -1,5 +1,4 @@
 ﻿@page  "/caesar"
-
 @inherits CaesarBase
 
 <div class="form-group">
@@ -17,6 +16,16 @@
         +
     </button>
 </div>
+<div class="input-group">
+    <select class="custom-select" id="inputGroupSelect04" bind="@Operation">
+        <option selected value="@Operations.Encode">Encode</option>
+        <option value="@Operations.Decode">Decode</option>
+    </select>
+    <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button" onclick="@ConvertInputText">Go</button>
+    </div>
+</div>
+@Operation
 <div class="form-group">
     <label for="output-caesar">Output</label>
     <textarea class="form-control rounded-0" id="output-caesar" rows="5" bind="@OutputText"></textarea>
