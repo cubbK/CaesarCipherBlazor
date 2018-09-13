@@ -72,24 +72,23 @@ public class CaesarBase : BlazorComponent
 
     private char ShiftLetter (char letter)
     {
-        int letterIndex = Alphabet.GetLetterIndex(letter);
-
-
-
-        // remaining letters are enough. No need to concatenate arrays
-        if ((Alphabet.Letters.Count - letterIndex) > Key)
+        
+        if ((Key > (Alphabet.Letters.Count - 1)) || (Key < 0))
         {
-            return Alphabet.Letters[letterIndex + Key];
-        } else
-        {
-            int howManyArraysToConcatenate = (Key / Alphabet.Letters.Count) + 1;
-
-            List<char> concatenatedLetterList = new List<char> { };
-            concatenatedLetterList.AddRange(Alphabet.Letters);
-            concatenatedLetterList.AddRange(Alphabet.Letters);
-
-            return concatenatedLetterList[letterIndex + Key];
+            throw new Exception("Key is too big. Out of range error");
         }
+
+        int letterIndex = Alphabet.GetLetterIndex(letter) + Alphabet.Letters.Count;
+
+
+        List<char> doubleLettersList = new List<char> { };
+
+
+        doubleLettersList.AddRange(Alphabet.Letters);
+        doubleLettersList.AddRange(Alphabet.Letters);
+
+        return doubleLettersList[letterIndex - Key];
+   
     }
 
 
