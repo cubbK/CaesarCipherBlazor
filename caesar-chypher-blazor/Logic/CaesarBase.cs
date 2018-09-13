@@ -11,7 +11,7 @@ public class CaesarBase : BlazorComponent
         Encode
     }
 
-     private enum LetterShiftMode
+    private enum LetterShiftMode
     {
         Left,
         Right
@@ -59,10 +59,10 @@ public class CaesarBase : BlazorComponent
 
     private char TransformLetter(char letter, LetterShiftMode shiftMode)
     {
-        if(Alphabet.HasLetter(letter))
+        if (Alphabet.HasLetter(letter))
         {
             char lowerCaseLetter = Char.ToLower(letter);
-            char shiftedLetter = shiftMode == LetterShiftMode.Left ? ShiftLeftLetter(lowerCaseLetter) : ShiftRightLetter(lowerCaseLetter);
+            char shiftedLetter = shiftMode == LetterShiftMode.Left ? ShiftLetterLeft(lowerCaseLetter) : ShiftLetterRight(lowerCaseLetter);
 
             if (Alphabet.IsUpper(letter))
             {
@@ -77,34 +77,43 @@ public class CaesarBase : BlazorComponent
         {
             return letter;
         }
-        
+
 
     }
 
-    private char ShiftLeftLetter (char letter)
+    private char ShiftLetterLeft(char letter)
     {
-        
+
         if ((Key > (Alphabet.Letters.Count - 1)) || (Key < 0))
         {
-            throw new Exception("Key is too big. Out of range error");
+            throw new Exception("Key is too big or too small. Out of range error");
         }
 
         int letterIndex = Alphabet.GetLetterIndex(letter) + Alphabet.Letters.Count;
 
 
         List<char> doubleLettersList = new List<char> { };
-
-
         doubleLettersList.AddRange(Alphabet.Letters);
         doubleLettersList.AddRange(Alphabet.Letters);
 
         return doubleLettersList[letterIndex - Key];
-   
+
     }
 
-    private char ShiftRightLetter (char letter)
+    private char ShiftLetterRight(char letter)
     {
-        return 'x';
+        if ((Key > (Alphabet.Letters.Count - 1)) || (Key < 0))
+        {
+            throw new Exception("Key is too big or too small. Out of range error");
+        }
+
+        int letterIndex = Alphabet.GetLetterIndex(letter);
+
+        List<char> doubleLettersList = new List<char> { };
+        doubleLettersList.AddRange(Alphabet.Letters);
+        doubleLettersList.AddRange(Alphabet.Letters);
+
+        return doubleLettersList[letterIndex + Key];
     }
 
 
