@@ -1,17 +1,18 @@
 ﻿
 
 using System;
+using System.Collections.Generic;
 
 namespace Utils
 {
     class Alphabet
     {
-        public static char[] Letters = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
+        public static List<char> Letters = new List<char> { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
 
         public static bool HasLetter(char letter)
         {
             char lowerLetter = Char.ToLower(letter);
-            if(Array.IndexOf(Letters, lowerLetter) > -1)
+            if(Letters.FindIndex(f => f == lowerLetter) > -1)
             {
                 return true;
             } else
@@ -34,7 +35,7 @@ namespace Utils
         public static int GetLetterIndex (char letter)
         {
             char lowerLetter = Char.ToLower(letter);
-            return Array.IndexOf(Letters, lowerLetter);
+            return Letters.FindIndex(f => f == lowerLetter);
         } 
     }
   

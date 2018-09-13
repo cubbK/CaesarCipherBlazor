@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Blazor.Components;
 using System;
+using System.Collections.Generic;
 using Utils;
 
 public class CaesarBase : BlazorComponent
@@ -83,15 +84,23 @@ public class CaesarBase : BlazorComponent
     private char ShiftLetter (char letter)
     {
         int letterIndex = Alphabet.GetLetterIndex(letter);
-        char[] concatenedLettersArray = Alphabet.Letters;
+
 
 
         // remaining letters are enough. No need to concatenate arrays
-        if ((Alphabet.Letters.Length - letterIndex) > Key)
+        if ((Alphabet.Letters.Count - letterIndex) > Key)
         {
-            
+            return Alphabet.Letters[letterIndex + Key];
+        } else
+        {
+            int howManyArraysToConcatenate = (Key / Alphabet.Letters.Count) + 1;
+
+            List<char> concatenatedLetterList = new List<char> { };
+            concatenatedLetterList.AddRange(Alphabet.Letters);
+            concatenatedLetterList.AddRange(Alphabet.Letters);
+
+            return concatenatedLetterList[letterIndex + Key];
         }
-        return 'a';
     }
 
 
