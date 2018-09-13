@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Blazor.Components;
+using System;
+using Utils;
 
 public class CaesarBase : BlazorComponent
 {
@@ -13,7 +15,7 @@ public class CaesarBase : BlazorComponent
     public string OutputText { get; set; } = null;
 
 
-    public void OnDecreaseKeyClick ()
+    public void OnDecreaseKeyClick()
     {
         if (Key > 0)
         {
@@ -26,9 +28,9 @@ public class CaesarBase : BlazorComponent
         Key = Key + 1;
     }
 
-    public void ConvertInputText ()
+    public void ConvertInputText()
     {
-        if(Operation == Operations.Encode)
+        if (Operation == Operations.Encode)
         {
             Encode();
         }
@@ -38,13 +40,61 @@ public class CaesarBase : BlazorComponent
         }
     }
 
-    private void Encode ()
+    private void Encode()
     {
-        OutputText = "EncodedText";
+        OutputText = "";
+        foreach (char letter in InputText)
+        {
+            OutputText = OutputText + EncodeLetter(letter);
+        }
     }
 
-    private void Decode ()
+    private void Decode()
     {
+
+
         OutputText = "DecodedText";
     }
+
+    private char EncodeLetter(char letter)
+    {
+        if(Alphabet.HasLetter(letter))
+        {
+            char lowerCaseLetter = Char.ToLower(letter);
+            char shiftedLetter =  ShiftLetter(lowerCaseLetter);
+
+            if (Alphabet.IsUpper(letter))
+            {
+                return Char.ToUpper(shiftedLetter);
+            }
+            else
+            {
+                return shiftedLetter;
+            }
+        }
+        else
+        {
+            return letter;
+        }
+        
+
+    }
+
+    private char ShiftLetter (char letter)
+    {
+        int letterIndex = Alphabet.GetLetterIndex(letter);
+        char[] concatenedLettersArray = Alphabet.Letters;
+
+
+        // remaining letters are enough. No need to concatenate arrays
+        if ((Alphabet.Letters.Length - letterIndex) > Key)
+        {
+            
+        }
+        return 'a';
+    }
+
+
 }
+
+
