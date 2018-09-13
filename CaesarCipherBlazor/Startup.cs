@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Blazor.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace caesar_chypher_blazor
+namespace CaesarCipherBlazor
 {
     public class Startup
     {
