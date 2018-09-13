@@ -3,12 +3,13 @@ using Xunit;
 
 namespace CaesarCipherBlazor.UnitTests
 {
-    public class UnitTest1
+    public class CaesarBaseTest
     {
         [Fact]
         public void Test1()
         {
-
+            Console.WriteLine(123);
+            Assert.False(false);
         }
     }
 }
