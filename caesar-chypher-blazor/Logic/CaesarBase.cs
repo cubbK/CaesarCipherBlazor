@@ -10,6 +10,13 @@ public class CaesarBase : BlazorComponent
         Decode,
         Encode
     }
+
+     private enum LetterShiftMode
+    {
+        Left,
+        Right
+    }
+
     public string InputText { get; set; } = "Example String";
     public int Key { get; set; } = 0;
     public Operations Operation { get; set; } = Operations.Encode;
@@ -35,7 +42,7 @@ public class CaesarBase : BlazorComponent
         OutputText = "";
         foreach (char letter in InputText)
         {
-            OutputText = OutputText + EncodeLetter(letter);
+            OutputText = OutputText + TransformLetter(letter, LetterShiftMode.Left);
         }
     }
 
@@ -43,15 +50,19 @@ public class CaesarBase : BlazorComponent
     {
 
 
-        OutputText = "DecodedText";
+        OutputText = "";
+        foreach (char letter in InputText)
+        {
+            OutputText = OutputText + TransformLetter(letter, LetterShiftMode.Right);
+        }
     }
 
-    private char EncodeLetter(char letter)
+    private char TransformLetter(char letter, LetterShiftMode shiftMode)
     {
         if(Alphabet.HasLetter(letter))
         {
             char lowerCaseLetter = Char.ToLower(letter);
-            char shiftedLetter =  ShiftLetter(lowerCaseLetter);
+            char shiftedLetter = shiftMode == LetterShiftMode.Left ? ShiftLeftLetter(lowerCaseLetter) : ShiftRightLetter(lowerCaseLetter);
 
             if (Alphabet.IsUpper(letter))
             {
@@ -70,7 +81,7 @@ public class CaesarBase : BlazorComponent
 
     }
 
-    private char ShiftLetter (char letter)
+    private char ShiftLeftLetter (char letter)
     {
         
         if ((Key > (Alphabet.Letters.Count - 1)) || (Key < 0))
@@ -89,6 +100,11 @@ public class CaesarBase : BlazorComponent
 
         return doubleLettersList[letterIndex - Key];
    
+    }
+
+    private char ShiftRightLetter (char letter)
+    {
+        return 'x';
     }
 
 
