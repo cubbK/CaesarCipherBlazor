@@ -6,15 +6,17 @@
     <textarea class="form-control rounded-0" id="input-caesar" rows="5" bind="@InputText"></textarea>
 </div>
 <div class="key-container">
-    <div class="key-value">
-       Shift Key: @Key
-    </div>
-    <button type="button" class="btn btn-dark" onclick="@OnDecreaseKeyClick">
-        -
-    </button>
-    <button type="button" class="btn btn-dark" onclick="@OnIncreaseKeyClick">
-        +
-    </button>
+    <label class="key-value" for="key-select">
+       Shift Key:
+    </label>
+    
+    <select id="key-select" class="form-control" bind="@Key">
+        @for (int i = 0; i < LettersCount; i++)
+        {
+            <option value="@i">@i</option>
+        }
+
+    </select>
 </div>
 <div class="input-group">
     <select class="custom-select" id="inputGroupSelect04" bind="@Operation">
@@ -25,5 +27,13 @@
         <button class="btn btn-outline-secondary" type="button" onclick="@ConvertInputText">Go</button>
     </div>
 </div>
-@Operation
-<div>@OutputText</div>
+
+<div class="caesar-output-container">
+    <span class="caesar-output-container-title">
+        Output Text:
+    </span>
+    <span>
+        @OutputText
+    </span>
+    
+</div>

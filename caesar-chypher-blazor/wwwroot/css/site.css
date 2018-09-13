@@ -83,13 +83,23 @@ app {
 
 .key-container {
 	display: grid;
-	grid-template-columns: 1fr 50px 50px;
+	grid-template-columns: 3fr 1fr;
 	grid-column-gap: 10px;
+	margin-bottom: 1rem;
 }
 
 .key-value {
 	display: flex;
 	align-items: center;
+	margin-bottom: 0;
+}
+
+.caesar-output-container {
+	margin: 1rem 0;
+}
+
+.caesar-output-container-title {
+
 }
 
 @media(max-width: 820px) {
