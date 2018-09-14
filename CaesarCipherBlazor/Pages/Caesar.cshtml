@@ -1,6 +1,11 @@
 ﻿@page  "/caesar"
 @inherits CaesarBase
-
+<div>
+    <h1 class="display-4">Caesar Cipher</h1>
+    <div class="page-description">
+        <span>Caesar cipher</span> is one of the simplest and most widely known encryption techniques. It is a type of substitution cipher in which each letter in the plaintext is replaced by a letter some fixed number of positions down the alphabet. For example, with a left shift of <span>3</span>, <span>D</span> would be replaced by <span>A</span>, <span>E</span> would become <span>B</span>, and so on.
+    </div>
+</div>
 <div class="form-group">
     <label for="input-caesar">Input</label>
     <textarea class="form-control rounded-0" id="input-caesar" rows="5" bind="@InputText"></textarea>

@@ -102,6 +102,14 @@ app {
 
 }
 
+.page-description {
+	margin-bottom: 15px;
+}
+
+.page-description span {
+	font-weight: 700;
+}
+
 @media(max-width: 820px) {
 	.content {
 		width: auto;
