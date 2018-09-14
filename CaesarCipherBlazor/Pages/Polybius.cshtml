@@ -6,6 +6,31 @@
         A Polybius Square is a table that allows someone to translate letters into numbers. To give a small level of encryption, this table can be randomized and shared with the recipient. In order to fit the 26 letters of the alphabet into the 25 spots created by the table, the letters i and j are usually combined.
     </div>
 </div>
+
+<div class="polybius-alphabet-table">
+    <div class="polybius-alphabet-table-corner">
+        
+    </div>
+    <div class="polybius-alphabet-table-column-numbers">
+        @for(int i = 1; i <= 6; i++ )
+        {
+            <div>@i</div>
+        }
+    </div>
+    <div class="polybius-alphabet-table-row-numbers">
+        @for (int i = 1; i <= 5; i++)
+        {
+            <div>@i</div>
+        }
+    </div>
+    <div class="polybius-alphabet-table-data">
+        @foreach(char letter in alphabetLetters)
+        {
+            <div>@letter</div>
+        }
+    </div>
+</div>
+
 <div class="form-group">
     <label for="input-polybius">Input</label>
     <textarea class="form-control rounded-0" id="input-polybius" rows="5" bind="@InputText"></textarea>
@@ -17,6 +42,9 @@
 
     
 </div>
+
+
+
 <div class="input-group">
     <select class="custom-select" id="inputGroupSelect04" bind="@Operation">
         <option selected value="@Operations.Encode">Encode</option>

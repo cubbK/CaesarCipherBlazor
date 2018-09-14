@@ -15,4 +15,5 @@ public class PolybiusBase : BlazorComponent
     public int Key { get; set; } = 0;
     public Operations Operation { get; set; } = Operations.Encode;
     public string OutputText { get; set; } = null;
+    public List<char> alphabetLetters = Alphabet.Letters;
 }
