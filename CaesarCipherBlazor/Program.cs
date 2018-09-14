@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Blazor.Hosting;
 
-namespace caesar_chypher_blazor
+namespace CaesarCipherBlazor
 {
     public class Program
     {

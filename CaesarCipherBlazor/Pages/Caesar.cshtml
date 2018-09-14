@@ -1,0 +1,39 @@
+﻿@page  "/caesar"
+@inherits CaesarBase
+
+<div class="form-group">
+    <label for="input-caesar">Input</label>
+    <textarea class="form-control rounded-0" id="input-caesar" rows="5" bind="@InputText"></textarea>
+</div>
+<div class="key-container">
+    <label class="key-value" for="key-select">
+       Shift Key:
+    </label>
+    
+    <select id="key-select" class="form-control" bind="@Key">
+        @for (int i = 0; i < LettersCount; i++)
+        {
+            <option value="@i">@i</option>
+        }
+
+    </select>
+</div>
+<div class="input-group">
+    <select class="custom-select" id="inputGroupSelect04" bind="@Operation">
+        <option selected value="@Operations.Encode">Encode</option>
+        <option value="@Operations.Decode">Decode</option>
+    </select>
+    <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button" onclick="@ConvertInputText">Go</button>
+    </div>
+</div>
+
+<div class="caesar-output-container">
+    <span class="caesar-output-container-title">
+        Output Text:
+    </span>
+    <span>
+        @OutputText
+    </span>
+    
+</div>
