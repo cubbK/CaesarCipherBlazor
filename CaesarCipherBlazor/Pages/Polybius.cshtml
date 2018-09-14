@@ -1,0 +1,38 @@
+﻿@page  "/polybius"
+@inherits PolybiusBase
+<div>
+    <h1 class="display-4">Polybius Square Cipher</h1>
+    <div class="page-description">
+        A Polybius Square is a table that allows someone to translate letters into numbers. To give a small level of encryption, this table can be randomized and shared with the recipient. In order to fit the 26 letters of the alphabet into the 25 spots created by the table, the letters i and j are usually combined.
+    </div>
+</div>
+<div class="form-group">
+    <label for="input-polybius">Input</label>
+    <textarea class="form-control rounded-0" id="input-polybius" rows="5" bind="@InputText"></textarea>
+</div>
+<div class="key-container">
+    <label class="key-value" for="key-select">
+        Shift Key:
+    </label>
+
+    
+</div>
+<div class="input-group">
+    <select class="custom-select" id="inputGroupSelect04" bind="@Operation">
+        <option selected value="@Operations.Encode">Encode</option>
+        <option value="@Operations.Decode">Decode</option>
+    </select>
+    <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button" >Go</button>
+    </div>
+</div>
+
+<div class="caesar-output-container">
+    <span class="caesar-output-container-title">
+        Output Text:
+    </span>
+    <span>
+        @OutputText
+    </span>
+
+</div>
