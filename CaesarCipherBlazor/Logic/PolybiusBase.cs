@@ -1,19 +1,17 @@
-﻿using Microsoft.AspNetCore.Blazor.Components;
-using System;
+﻿using CaesarCipherBlazor.Logic;
 using System.Collections.Generic;
 using Utils;
 
-public class PolybiusBase : BlazorComponent
+public class PolybiusBase : Base
 {
-    public enum Operations
+    public List<char> alphabetLetters = Alphabet.Letters;
+    protected override char DecodeLetter(char letter)
     {
-        Decode,
-        Encode
+        return 'a';
     }
 
-    public string InputText { get; set; } = "Example String";
-    public int Key { get; set; } = 0;
-    public Operations Operation { get; set; } = Operations.Encode;
-    public string OutputText { get; set; } = null;
-    public List<char> alphabetLetters = Alphabet.Letters;
+    protected override char EncodeLetter(char letter)
+    {
+        return 'b';
+    }
 }
