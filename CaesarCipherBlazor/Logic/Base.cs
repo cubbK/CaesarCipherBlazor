@@ -16,7 +16,7 @@ namespace CaesarCipherBlazor.Logic
 
         public string InputText { get; set; } = "Example String";
         public string OutputText { get; set; } = null;
-        public int Key { get; set; } = 0;
+        public int Key { get; set; } = 2;
         public Operations Operation { get; set; } = Operations.Encode;
 
 

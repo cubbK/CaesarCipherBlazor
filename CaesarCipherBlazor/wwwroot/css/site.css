@@ -87,6 +87,10 @@ app {
 	grid-column-gap: 10px;
 	margin-bottom: 1rem;
 }
+ 
+.key-container.polybius {
+	grid-template-columns: 3fr 1.5fr;
+}
 
 .key-value {
 	display: flex;
@@ -132,6 +136,12 @@ app {
 	display: grid;
 	grid-template-columns: repeat(5, 20px);
 	text-align:center;
+}
+
+.polybius-table-key-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	margin-top: 15px;
 }
 
 
