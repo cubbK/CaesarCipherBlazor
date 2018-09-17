@@ -49,7 +49,7 @@ namespace CaesarCipherBlazor.Logic
             }
         }
 
-        protected virtual char TransformLetter(char letter, Operations operation)
+        protected virtual string TransformLetter(char letter, Operations operation)
         {
             if (Alphabet.HasLetter(letter))
             {
@@ -58,20 +58,30 @@ namespace CaesarCipherBlazor.Logic
 
                 if (Alphabet.IsUpper(letter))
                 {
-                    return Char.ToUpper(shiftedLetter);
+                    return Char.ToUpper(shiftedLetter).ToString();
                 }
                 else
                 {
-                    return shiftedLetter;
+                    return shiftedLetter.ToString();
                 }
             }
             else
             {
-                return letter;
+                return letter.ToString();
             }
         }
+        protected virtual string TransfromLetter(string letterSequence, Operations operation)
+        {
+            throw new NotImplementedException();
+        }
 
-        protected abstract char EncodeLetter(char letter);
-        protected abstract char DecodeLetter(char letter);
+        protected virtual char EncodeLetter(char letter)
+        {
+            throw new NotImplementedException();
+        }
+        protected virtual char DecodeLetter(char letter)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

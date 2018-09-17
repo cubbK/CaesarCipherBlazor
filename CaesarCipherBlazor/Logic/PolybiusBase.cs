@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Utils;
 
 public class PolybiusBase : Base
-{
+{   
     private readonly List<char> lettersList = Alphabet.Letters;
     public List<char> LettersShifted {
         get
@@ -25,15 +25,44 @@ public class PolybiusBase : Base
         } 
     }
 
+    private readonly int NumberOfColumns = 5;
+    private readonly int NumberOfRows = 6;
+
+    protected override string TransformLetter(char letter, Operations operation)
+    {
+        // in polybius case if there is only a char then there need to be a encoding operation
+        if (Alphabet.HasLetter(letter))
+        {
+            char lowerCaseLetter = Char.ToLower(letter);
+            string encodedLetter = EncodeLetter(lowerCaseLetter);
+            return encodedLetter;
+        }
+        else
+        {
+            return letter.ToString();
+        }
+    }
+
     protected override char DecodeLetter(char letter)
     {
         Console.WriteLine(letter);
         return 'a';
     }
 
-    protected override char EncodeLetter(char letter)
+
+    protected new string EncodeLetter(char letter)
     {
-        Console.WriteLine(letter);
-        return 'b';
+        for(int column = 0; column < NumberOfColumns; column++)
+        {
+            for(int row=0; row < NumberOfRows; row++)
+            {
+                int letterPos = column * row;
+                if (lettersList[letterPos] == letter)
+                {
+                    return column.ToString() + row.ToString();
+                }
+            }
+        }
+        return letter.ToString();
     }
 }

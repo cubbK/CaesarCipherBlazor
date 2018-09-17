@@ -1,4 +1,4 @@
-﻿using CaesarCipherBlazor.Logic;
+﻿ using CaesarCipherBlazor.Logic;
 using System;
 using System.Collections.Generic;
 using Utils;
