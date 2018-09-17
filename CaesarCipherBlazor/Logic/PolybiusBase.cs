@@ -52,7 +52,7 @@ public class PolybiusBase : Base
     protected new string EncodeLetter(char letter)
     {
         Console.WriteLine(lettersList.ToArray());
-
+        
         int column = 1;
         int row = 1;
 
@@ -60,22 +60,32 @@ public class PolybiusBase : Base
 
         for(int i = 0; i < lettersList.Count; i++)
         {
+            // if we pass one row
             if (columnItemsCounter > 5)
             {
+                // reset the counter
                 columnItemsCounter = 1;
+
+                // set the next row
                 row = row + 1;
+
+                // column is set where the count stopped
                 column = columnItemsCounter;
             } else
             {
                 column = columnItemsCounter;
             }
+
+            // increase the counter after all the asignments to column
             columnItemsCounter = columnItemsCounter + 1;
-            Console.WriteLine("AlphabetLetter: " + lettersList[i] + "  CheckingLetter: " + letter);
+
             if (lettersList[i] == letter)
             {
-                return (row).ToString() + (column).ToString();
+                return row.ToString() + column.ToString();
             }
         }
+
+        // if there is no such letter in the alphabet just return it
         return letter.ToString();
     }
 }
