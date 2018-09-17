@@ -59,7 +59,7 @@ public class PolybiusBase : Base
                 int letterPos = column * row;
                 if (lettersList[letterPos] == letter)
                 {
-                    return column.ToString() + row.ToString();
+                    return (column + 1).ToString() + (row+1).ToString();
                 }
             }
         }
