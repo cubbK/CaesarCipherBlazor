@@ -1,5 +1,7 @@
 ﻿# Cipher Encoder/Decoder App Built With [Blazor](https://blazor.net/)
 
+Blazor is an experimental .NET web framework using C# and HTML that runs in the browser.
+
 ![screenshot](./readme-screenshot.png)
 
 ## Demo
