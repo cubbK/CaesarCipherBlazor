@@ -87,6 +87,10 @@ app {
 	grid-column-gap: 10px;
 	margin-bottom: 1rem;
 }
+ 
+.key-container.polybius {
+	grid-template-columns: 3fr 1.5fr;
+}
 
 .key-value {
 	display: flex;
@@ -98,16 +102,46 @@ app {
 	margin: 1rem 0;
 }
 
-.caesar-output-container-title {
-
+.polybius-alphabet-table {
+	display: inline-grid;
+	grid-template-columns:  20px calc(5 * 20px);
+	grid-template-rows:  20px auto;
+	grid-template-areas: 
+		"corner row-numbers"
+		"column-numbers data";
+	text-align:center;
 }
 
-.page-description {
-	margin-bottom: 15px;
-}
-
-.page-description span {
+.polybius-alphabet-table-corner {
+	grid-area: corner;
 	font-weight: 700;
+
+}
+
+.polybius-alphabet-table-column-numbers {
+	grid-area: column-numbers;
+	font-weight: 700;
+	
+}
+
+.polybius-alphabet-table-row-numbers {
+	grid-area: row-numbers;
+	font-weight: 700;
+	display: grid;
+	grid-template-columns: repeat(5, 20px);
+	text-align: center;
+}
+
+.polybius-alphabet-table-data {
+	display: grid;
+	grid-template-columns: repeat(5, 20px);
+	text-align:center;
+}
+
+.polybius-table-key-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	margin-top: 15px;
 }
 
 @media(max-width: 820px) {
