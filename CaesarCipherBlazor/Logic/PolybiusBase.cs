@@ -9,7 +9,6 @@ public class PolybiusBase : Base
     public List<char> LettersShifted {
         get
         {
-            Console.WriteLine(Key);
             List<char> shiftedList = new List<char> { };
 
             for(int i = Key; i < lettersList.Count; i++)
@@ -52,15 +51,29 @@ public class PolybiusBase : Base
 
     protected new string EncodeLetter(char letter)
     {
-        for(int column = 0; column < NumberOfColumns; column++)
+        Console.WriteLine(lettersList.ToArray());
+
+        int column = 1;
+        int row = 1;
+
+        int columnItemsCounter = 1;
+
+        for(int i = 0; i < lettersList.Count; i++)
         {
-            for(int row=0; row < NumberOfRows; row++)
+            if (columnItemsCounter > 5)
             {
-                int letterPos = column * row;
-                if (lettersList[letterPos] == letter)
-                {
-                    return (column + 1).ToString() + (row+1).ToString();
-                }
+                columnItemsCounter = 1;
+                row = row + 1;
+                column = columnItemsCounter;
+            } else
+            {
+                column = columnItemsCounter;
+            }
+            columnItemsCounter = columnItemsCounter + 1;
+            Console.WriteLine("AlphabetLetter: " + lettersList[i] + "  CheckingLetter: " + letter);
+            if (lettersList[i] == letter)
+            {
+                return (row).ToString() + (column).ToString();
             }
         }
         return letter.ToString();
