@@ -24,6 +24,14 @@ public class PolybiusBase : Base
         } 
     }
 
+    public List<char> Letters
+    {
+        get
+        {
+            return Alphabet.Letters;
+        }
+    }
+
     private readonly int NumberOfColumns = 5;
     private readonly int NumberOfRows = 6;
 
@@ -51,14 +59,14 @@ public class PolybiusBase : Base
 
     protected new string EncodeLetter(char letter)
     {
-        Console.WriteLine(lettersList.ToArray());
+        Console.WriteLine(LettersShifted.ToArray());
         
         int column = 1;
         int row = 1;
 
         int columnItemsCounter = 1;
 
-        for(int i = 0; i < lettersList.Count; i++)
+        for(int i = 0; i < LettersShifted.Count; i++)
         {
             // if we pass one row
             if (columnItemsCounter > 5)
@@ -79,7 +87,7 @@ public class PolybiusBase : Base
             // increase the counter after all the asignments to column
             columnItemsCounter = columnItemsCounter + 1;
 
-            if (lettersList[i] == letter)
+            if (LettersShifted[i] == letter)
             {
                 return row.ToString() + column.ToString();
             }
